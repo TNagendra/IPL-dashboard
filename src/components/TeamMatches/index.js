@@ -1,4 +1,3 @@
-// Write your code here
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 
@@ -16,6 +15,7 @@ class TeamMatches extends Component {
   }
 
   componentDidMount() {
+    // FIX12: The method to get data should be called to get data from API
     this.getTeamMatches()
   }
 
@@ -47,6 +47,7 @@ class TeamMatches extends Component {
         this.getFormattedData(eachMatch),
       ),
     }
+    // FIX13: The state value of isLoading should be set to false to display the response
     this.setState({teamMatchesData: formattedData, isLoading: false})
   }
 
@@ -77,7 +78,7 @@ class TeamMatches extends Component {
   }
 
   renderLoader = () => (
-    <div className="loader-container">
+    <div data-testid="loader" className="loader-container">
       <Loader type="Oval" color="#ffffff" height={50} />
     </div>
   )
